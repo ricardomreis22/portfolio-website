@@ -4,9 +4,15 @@ import WorkCard from "../../components/WorkCard";
 import Navbar from "../../components/Navbar";
 import PageTitle from "../../components/PageTitle";
 const Projects = () => {
-  const tenziesLang = ["Html", "CSS", "Javascript", "React", "Vite.js"];
   const padelLang = ["Html", "Python", "CSS", "Flask"];
-  const endorsmentsLang = ["Html", "Javascript", "CSS", "Firebase.db"];
+  const restaurantManagerLang = [
+    "Html",
+    "TypeScript",
+    "CSS",
+    "React",
+    "Next.js",
+    "Prisma",
+  ];
   const quizzicalLang = ["Html", "Javascript", "CSS", "React", "Vite.js"];
 
   return (
@@ -31,17 +37,10 @@ const Projects = () => {
           />
           <WorkCard
             img="/championsgif.gif"
-            link="https://github.com/ricardomreis22/Endorsments.git"
-            title="Endorsments"
-            lang={endorsmentsLang}
-            info="The final project of the Javascript course from Scrimba where the user can write an endorxment to someone. Here I save, update and get the endorsments to/from a database. "
-          />
-          <WorkCard
-            img="/tenziesgif.gif"
-            link="https://github.com/ricardomreis22/Tenzies-Game.git"
-            title="Tenzies Game"
-            lang={tenziesLang}
-            info="A project that was part of the React Course where the users can play a game with the goal to made all dices equal as fast I can. Here I presented the fastest time and less rolls needed."
+            link="https://github.com/ricardomreis22/restaurant-manager.git"
+            title="Restaurant Manager App"
+            lang={restaurantManagerLang}
+            info="A Next.js app I built to help restaurant teams manage locations, tables, and payments. It uses authentication and a database to keep restaurant information organized and up to date."
           />
           <WorkCard
             img="/quizzicalgif.gif"
