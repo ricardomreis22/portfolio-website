@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useRef, useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -66,7 +68,7 @@ export const Form = () => {
   return (
     <div className="flex flex-col mt-4 mx-4  xl:w-full text-white">
       {Object.keys(formErrors).length === 0 && isSubmit && (
-        <p className="text-xl font-bold text-[#191d2b]">
+        <p className="text-xl font-bold text-white">
           Email sent sucessfully!
         </p>
       )}
@@ -76,43 +78,43 @@ export const Form = () => {
         ref={form}
         onSubmit={handleSubmit}
       >
-        <label className="text-[#191d2b] font-bold">Name</label>
+        <label className="font-bold text-white">Name</label>
         <input
           type="text"
           name="username"
           value={formValues.username}
           onChange={handleChange}
-          className="bg-[#191d2b] p-2 mb-2 mt-2 rounded-xl"
+          className="mb-2 mt-2 rounded-xl border border-white/30 bg-white/10 p-2 text-white placeholder:text-white/50"
         />
         <p className="text-red-500 font-bold text-md mb-4">
           {formErrors.username}
         </p>
-        <label className="text-[#191d2b] font-bold">Email</label>
+        <label className="font-bold text-white">Email</label>
         <input
           type="email"
           name="email"
           value={formValues.email}
           onChange={handleChange}
-          className="bg-[#191d2b] p-2 mb-2 mt-2 rounded-xl"
+          className="mb-2 mt-2 rounded-xl border border-white/30 bg-white/10 p-2 text-white placeholder:text-white/50"
         />
         <p className="text-red-500 font-bold text-md mb-4 ">
           {formErrors.email}
         </p>
-        <label className="text-[#191d2b] font-bold">Phone</label>
+        <label className="font-bold text-white">Phone</label>
         <input
           type="phone"
           name="phone"
           value={formValues.phone}
           onChange={handleChange}
-          className="bg-[#191d2b] p-2 mb-2 mt-2 rounded-xl"
+          className="mb-2 mt-2 rounded-xl border border-white/30 bg-white/10 p-2 text-white placeholder:text-white/50"
         />
         <p className="text-red-500 font-bold text-md mb-4">
           {formErrors.phone}
         </p>
-        <label className="text-[#191d2b] font-bold">Message</label>
+        <label className="font-bold text-white">Message</label>
         <textarea
           name="message"
-          className="bg-[#191d2b] p-2 mt-2 rounded-xl"
+          className="mt-2 rounded-xl border border-white/30 bg-white/10 p-2 text-white placeholder:text-white/50"
           rows="6"
           value={formValues.message}
           onChange={handleChange}
@@ -122,16 +124,7 @@ export const Form = () => {
         </p>
         <input
           type="submit"
-          className="rounded-full
-        bg-[#dbe1e8] font-bold
-        border border-solid border-white
-        text-[#191d2b]
-        hover:bg-white
-        h-auto px-6
-        items-center
-        text-center
-        py-1 cursor-pointer
-        "
+          className="h-auto cursor-pointer rounded-full border border-solid border-white bg-transparent px-6 py-1 text-center font-bold text-white hover:bg-white/15"
           value="Submit"
         />{" "}
       </form>

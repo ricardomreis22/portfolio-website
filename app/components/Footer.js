@@ -4,7 +4,7 @@ import SocialMedia from "../components/SocialMedia";
 
 const Footer = () => {
   return (
-    <div className="bg-[#dbe1e8] flex flex-col justify-center items-center w-full py-10">
+    <div className="flex w-full flex-col items-center justify-center overflow-visible border-t border-white/20 bg-black/25 py-10 text-white">
       <div className="flex justify-center items-center mr-5 mb-4">
         <AiFillPhone size={"1.3rem"} className="mr-5" />
         <span className="xl:text-xl">+447554913107</span>

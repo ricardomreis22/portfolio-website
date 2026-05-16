@@ -6,33 +6,34 @@ import { FaBars, FaTimes } from "react-icons/fa";
 
 import NavControls from "./NavControls";
 
-const Navbar = (props) => {
+/**
+ * Outer shell uses pointer-events-none so empty areas don't steal clicks from
+ * page content. Interactive bits use pointer-events-auto (required for this to work).
+ */
+const Navbar = () => {
   const [active, setActive] = useState(false);
 
-  function handleClick() {
-    setActive(!active);
-  }
-
   return (
-    <div className="flex fixed w-full justify-between items-center z-50 p-3 text-xl">
-      <div
-        className={`flex flex-row items-center lg:hidden ${
-          active
-            ? "flex flex-col bg-black bg-opacity-90 text-white font-semibold -left-100 transition-all ease-in-out z-10 w-full h-screen absolute top-0 left-0 justify-center items-center text-3xl"
-            : "hidden"
-        }`}
+    <header className="pointer-events-none fixed left-0 top-0 z-[1000] flex w-full justify-end p-3">
+      {active ? (
+        <div className="pointer-events-auto fixed inset-0 z-[1001] flex flex-col items-center justify-center bg-black/90 p-4 text-3xl font-semibold lg:hidden">
+          <NavControls onNavigate={() => setActive(false)} />
+        </div>
+      ) : null}
+      <button
+        type="button"
+        className="pointer-events-auto relative z-[1002] rounded-full border border-white/35 bg-white/10 p-3 shadow-md lg:hidden"
+        onClick={() => setActive((open) => !open)}
+        aria-expanded={active}
+        aria-label={active ? "Close menu" : "Open menu"}
       >
-        <NavControls />
-      </div>
-      {/* Hamburguer is not open and cross to close if its open */}
-      <div className={`${props.hambColor} z-50 lg:hidden`}>
-        {!active ? (
-          <FaBars onClick={handleClick} />
+        {active ? (
+          <FaTimes className="pointer-events-none" aria-hidden />
         ) : (
-          active && <FaTimes color="white" onClick={handleClick} />
+          <FaBars className="pointer-events-none" aria-hidden />
         )}
-      </div>
-    </div>
+      </button>
+    </header>
   );
 };
 
