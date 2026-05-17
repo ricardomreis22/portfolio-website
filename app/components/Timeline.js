@@ -1,23 +1,37 @@
 import React from "react";
-import { BsFillBriefcaseFill } from "react-icons/bs";
 
-const Timeline = (props) => {
+function formatOrdinal(n) {
+  const abs = Math.abs(n);
+  const lastTwo = abs % 100;
+  const lastOne = abs % 10;
+  if (lastTwo >= 11 && lastTwo <= 13) return `${n}th`;
+  if (lastOne === 1) return `${n}st`;
+  if (lastOne === 2) return `${n}nd`;
+  if (lastOne === 3) return `${n}rd`;
+  return `${n}th`;
+}
+
+const Timeline = ({ course, date, description, rank }) => {
+  const label = rank != null ? formatOrdinal(rank) : null;
+
   return (
-    <div className="w-full">
-      <div className="relative">
-        <div className="absolute top-0 left-0">
-          <div className="flex justify-center items-center bg-[#dbe1e8] rounded-full w-10 h-10 relative">
-            <div className="bg-[#191d2b] w-[1px] h-16 absolute top-10"></div>
-            <BsFillBriefcaseFill />
-          </div>
+    <div className="flex w-full gap-3 text-start sm:gap-4">
+      {label ? (
+        <div
+          className="w-9 shrink-0 self-start pt-1 text-right text-xs font-semibold tabular-nums text-white/45 sm:w-10 sm:text-sm"
+          aria-hidden
+        >
+          {label}
         </div>
-      </div>
-      <div className="lg:mb-4 ml-14 lg:mt-2">
-        <p className="text-base">
-          <span className="font-bold text-lg xl:text-xl">{props.course}</span> -{" "}
-          {props.date}{" "}
+      ) : (
+        <div className="w-9 shrink-0 sm:w-10" aria-hidden />
+      )}
+      <div className="min-w-0 flex-1">
+        <p className="text-base font-bold leading-snug sm:text-lg">{course}</p>
+        <p className="mt-1 text-xs text-white/60 sm:text-sm">{date}</p>
+        <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-base">
+          {description}
         </p>
-        <p className="mt-6 text-base xl:text-lg">{props.description}</p>
       </div>
     </div>
   );

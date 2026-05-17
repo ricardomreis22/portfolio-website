@@ -1,38 +1,78 @@
 import React from "react";
 import { AiFillGithub } from "react-icons/ai";
-import Link from "next/link";
+import { FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
+
+const btnClass =
+  "inline-flex items-center justify-center gap-2 rounded-lg border border-white/40 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm transition hover:border-white/55 hover:bg-white/25 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80";
 
 const WorkCard = (props) => {
   const langArr = props.lang;
+  const githubUrl = props.link;
+  const siteUrl = typeof props.website === "string" ? props.website.trim() : "";
+
   return (
-    <div className="min-w-[350px] max-w-[350px]">
-      <Link href={`${props.link}`} target="_blank" className="group">
-        <div className="flex bg-[#dbe1e8] text-[#191d2b] mb-1 w-[100%] h-[50px] shadow-2xl border-solid border-[#191d2b] border-[2px] justify-center items-center p-7 cursor-pointer">
-          <h1 className=" text-md lg:text-xl xl:text-xl font-bold mr-6 cursor-pointer">
+    <div className="w-full min-w-0">
+      <div className="group block w-full">
+        <div className="mb-3 flex w-full items-center justify-center px-4 py-2">
+          <h1 className="text-center text-2xl font-bold leading-tight text-white">
             {props.title}
           </h1>
-          <AiFillGithub size={30} className="flex cursor-pointer" />
         </div>
-        <div className="w-auto h-[220px] bg-[#191d2b] shadow-xl flex flex-col justify-center items-center cursor-pointer">
+        <div className="relative aspect-[3/2] w-full cursor-default overflow-hidden bg-black/40 shadow-xl">
           <Image
             src={props.img}
-            alt="background Image"
-            width={0}
-            height={0}
-            className="hidden w-full group-hover:flex h-[220px] cursor-pointer"
+            alt={props.title ? `${props.title} preview` : "Project preview"}
+            fill
+            sizes="(max-width: 768px) 90vw, 50vw"
+            unoptimized
+            className="object-contain object-center opacity-100 transition-opacity duration-300 ease-out"
           />
-          <div className="flex group-hover:hidden flex-col justify-center items-center text-white w-[70%]">
-            <p className="text-center text-sm lg:text-md ">{props.info}</p>
+          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/80 px-4 opacity-0 transition-opacity duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100">
+            <div className="flex max-h-[min(90%,22rem)] w-full max-w-lg flex-col items-center gap-5 overflow-y-auto py-2">
+              <p className="max-w-prose text-center text-base text-white">
+                {props.info}
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3">
+                <a
+                  href={githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={btnClass}
+                >
+                  <AiFillGithub className="text-xl shrink-0" aria-hidden />
+                  GitHub
+                </a>
+                {siteUrl ? (
+                  <a
+                    href={siteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={btnClass}
+                  >
+                    <FiExternalLink className="text-lg shrink-0" aria-hidden />
+                    Website
+                  </a>
+                ) : (
+                  <span
+                    className={`${btnClass} cursor-not-allowed border-white/20 bg-white/5 text-white/45 hover:border-white/20 hover:bg-white/5`}
+                    title="Live site URL not set"
+                  >
+                    <FiExternalLink className="text-lg shrink-0" aria-hidden />
+                    Website
+                  </span>
+                )}
+              </div>
+            </div>
           </div>
         </div>
-      </Link>
-      <div className="flex justify-left mt-1 flex-wrap">
+      </div>
+      <div className="mt-1 flex w-full flex-wrap justify-start z-50 ">
         {langArr.map((item, index) => {
           return (
             <div
               key={index}
-              className="border-[1px] bg-[#dbe1e8]  border-solid border-[#191d2b] text-sm font-bold mr-1 mb-1 px-2"
+              className="mb-1 mr-1 border border-solid border-white/40 bg-white px-2 rounded-md text-lg font-bold text-[#191d2b]"
             >
               {item}
             </div>
