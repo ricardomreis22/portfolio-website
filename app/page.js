@@ -11,38 +11,35 @@ export default function Page() {
   return (
     <main className="relative min-h-screen text-white">
       <Navbar />
-
       {/* Tech pills roam the full viewport; radial mask keeps the center area lighter */}
       <div className="pointer-events-none fixed inset-0 z-[25]">
         <div className="tech-roam-viewport-mask h-full w-full">
           <TechStack variant="roam" />
         </div>
       </div>
-
       {/* Vertical side rails: ~1/4 viewport each on lg+; main content uses center half */}
-      <aside className="pointer-events-none fixed inset-y-0 left-0 z-0 hidden w-1/4 border-r border-white/15 bg-[#0d0f16]/90 lg:flex">
+      <aside className="pointer-events-none fixed inset-y-0 left-0 z-0 hidden md:w-1/4 border-r border-white/15 bg-[#0d0f16]/90 lg:flex">
         <div className="relative z-10 flex h-full min-h-0 w-full flex-col items-center justify-center pointer-events-auto">
           <LeftRailActions />
         </div>
       </aside>
-      <aside className="pointer-events-none fixed inset-y-0 right-0 z-0 hidden w-1/4 border-l border-white/15 bg-[#0d0f16]/90 lg:flex">
+      <aside className="pointer-events-none fixed inset-y-0 right-0 z-0 hidden sm:w-1/4 border-l border-white/15 bg-[#0d0f16]/90 lg:flex">
         <div className="relative z-10 flex h-full min-h-0 w-full flex-col items-center justify-center pointer-events-auto">
           <NavControls />
         </div>
       </aside>
-
-      <div className="relative z-[28] flex w-full flex-col items-center justify-center gap-8 px-4 backdrop-blur-sm sm:mx-auto sm:w-1/2 sm:px-0 lg:mx-[25vw] lg:w-1/2 lg:max-w-none">
+      <div className="relative z-[28] flex w-full flex-col items-center justify-center gap-8 backdrop-blur-sm sm:mx-auto sm:w-1/2 lg:mx-[25vw] lg:w-1/2 lg:max-w-none">
         <section
           className="relative overflow-hidden sm:h-screen sm:w-[60%]"
           id="home"
           variant="section"
         >
           <div className="home flex items-center justify-center" aria-hidden />
-          <div className="relative z-10 flex min-h-screen w-full flex-col justify-between py-8 sm:py-10">
+          <div className="relative z-10 flex min-h-screen w-full flex-col justify-between py-8 ">
             <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20">
-              <div className="flex w-full flex-col items-center gap-8 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-                <div className="min-w-0 flex-1 text-justify font-bold lg:text-lg">
-                  <p className="text-xl sm:text-2xl">Hi there!!</p>
+              <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:gap-6 ">
+                <div className="min-w-0 flex flex-col flex-1 text-justify font-bold lg:text-lg ">
+                  <p className="text-xl sm:text-2xl ">Hi there!!</p>
                   <p className="mt-4 text-xl sm:text-2xl">I am Ricardo Reis</p>
                 </div>
                 <div className="flex shrink-0 justify-center sm:justify-end">
@@ -62,10 +59,15 @@ export default function Page() {
                 programming, focused on building efficient, modern, and
                 well-structured solutions.
               </p>
+              <div className="w-full ">
+                <TechStack variant="grid" size="sm" />
+              </div>
             </div>
-            <div className="mt-8 flex w-full flex-col items-center gap-1 text-base sm:mt-0">
-              <p>ricardomreis22@hotmail.com</p>
-              <p>+351913573834</p>
+            <div className="flex w-full flex-col items-center gap-6">
+              <div className="flex flex-col items-center gap-1 text-base mt-20">
+                <p>ricardomreis22@hotmail.com</p>
+                <p>+351913573834</p>
+              </div>
             </div>
           </div>
         </section>

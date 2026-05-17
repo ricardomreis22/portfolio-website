@@ -2,19 +2,39 @@ import React from "react";
 import { TECH } from "./techData";
 import TechRoamBounce from "./TechRoamBounce";
 
-const pillClass =
-  "flex shrink-0 items-center gap-2 rounded-full border border-white/35 bg-white/10 px-3 py-2 text-white shadow-sm sm:px-4";
+const pillSizes = {
+  default: {
+    pill: "gap-2 rounded-full border border-white/35 bg-white/10 px-3 py-2 shadow-sm sm:px-4",
+    icon: "h-6 w-6 sm:h-7 sm:w-7",
+    label: "text-xs sm:text-sm",
+    gap: "gap-3 sm:gap-4 md:gap-5",
+  },
+  sm: {
+    pill: "gap-1 rounded-full border border-white/35 bg-white/10 px-2 py-1 shadow-sm",
+    icon: "h-3.5 w-3.5 sm:h-4 sm:w-4",
+    label: "text-[10px] sm:text-xs",
+    gap: "gap-1.5 sm:gap-2",
+  },
+};
 
-function TechPills({ suffix = "" }) {
+function TechPills({ suffix = "", size = "default" }) {
+  const s = pillSizes[size] ?? pillSizes.default;
   return TECH.map(({ name, Icon }) => (
-    <div key={suffix ? `${name}-${suffix}` : name} className={pillClass}>
-      <Icon className="h-6 w-6 shrink-0 sm:h-7 sm:w-7" aria-hidden />
-      <span className="text-xs font-semibold sm:text-sm">{name}</span>
+    <div
+      key={suffix ? `${name}-${suffix}` : name}
+      className={`flex shrink-0 items-center text-white ${s.pill}`}
+    >
+      <Icon className={`shrink-0 ${s.icon}`} aria-hidden />
+      <span className={`font-semibold ${s.label}`}>{name}</span>
     </div>
   ));
 }
 
-export default function TechStack({ variant = "grid", mirror = false }) {
+export default function TechStack({
+  variant = "grid",
+  mirror = false,
+  size = "default",
+}) {
   const isStrip = variant === "strip";
   const isMarquee = variant === "marquee";
   const isRoam = variant === "roam";
@@ -22,6 +42,8 @@ export default function TechStack({ variant = "grid", mirror = false }) {
   if (isRoam) {
     return <TechRoamBounce mirror={mirror} />;
   }
+
+  const gap = pillSizes[size]?.gap ?? pillSizes.default.gap;
 
   if (isMarquee) {
     return (
@@ -31,9 +53,11 @@ export default function TechStack({ variant = "grid", mirror = false }) {
         aria-label="Technologies"
         aria-live="off"
       >
-        <div className="tech-marquee-track flex w-max flex-nowrap items-center gap-3 py-2 sm:gap-4 md:gap-5">
-          <TechPills suffix="a" />
-          <TechPills suffix="b" />
+        <div
+          className={`tech-marquee-track flex w-max flex-nowrap items-center py-2 ${gap}`}
+        >
+          <TechPills suffix="a" size={size} />
+          <TechPills suffix="b" size={size} />
         </div>
       </div>
     );
@@ -43,11 +67,11 @@ export default function TechStack({ variant = "grid", mirror = false }) {
     <div
       className={
         isStrip
-          ? "flex w-max flex-nowrap items-center gap-3 py-2 pl-4 pr-4 sm:gap-4 md:gap-5"
-          : "mt-10 flex w-full flex-wrap items-center justify-center gap-3 sm:gap-4 md:gap-5"
+          ? `flex w-max flex-nowrap items-center py-2 pl-4 pr-4 ${gap}`
+          : `mt-10 flex w-full flex-wrap items-center justify-center ${gap}`
       }
     >
-      <TechPills />
+      <TechPills size={size} />
     </div>
   );
 }

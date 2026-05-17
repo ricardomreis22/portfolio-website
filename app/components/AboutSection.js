@@ -3,7 +3,7 @@ import PageTitle from "./PageTitle";
 
 export default function AboutSection() {
   return (
-    <div className="flex  flex-col items-center px-4 w-[60%]">
+    <div className="flex  flex-col items-center px-4 w-full sm:w-[60%]">
       <div className="mx-auto flex w-full max-w-3xl flex-col items-center text-center">
         <PageTitle id="about" variant="section" title="About Me" />
         <div className="mt-6 w-full text-justify text-xl leading-10">

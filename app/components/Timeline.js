@@ -18,18 +18,18 @@ const Timeline = ({ course, date, description, rank }) => {
     <div className="flex w-full gap-3 text-start sm:gap-4">
       {label ? (
         <div
-          className="w-9 shrink-0 self-start pt-1 text-right text-xs font-semibold tabular-nums text-white/45 sm:w-10 sm:text-sm"
+          className="w-10 shrink-0 self-start pt-1 text-right text-sm font-semibold tabular-nums text-white/45 sm:w-11 sm:text-base"
           aria-hidden
         >
           {label}
         </div>
       ) : (
-        <div className="w-9 shrink-0 sm:w-10" aria-hidden />
+        <div className="w-10 shrink-0 sm:w-11" aria-hidden />
       )}
       <div className="min-w-0 flex-1">
-        <p className="text-base font-bold leading-snug sm:text-lg">{course}</p>
-        <p className="mt-1 text-xs text-white/60 sm:text-sm">{date}</p>
-        <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-base">
+        <p className="text-lg font-bold leading-snug sm:text-xl">{course}</p>
+        <p className="mt-1.5 text-sm text-white/60 sm:text-base">{date}</p>
+        <p className="mt-3 text-base leading-relaxed text-white/90 sm:text-lg">
           {description}
         </p>
       </div>

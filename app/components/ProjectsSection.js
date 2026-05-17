@@ -39,6 +39,11 @@ const LAST = PROJECTS.length - 1;
 
 export default function ProjectsSection() {
   const [index, setIndex] = useState(0);
+  const [mobileExpandedId, setMobileExpandedId] = useState(null);
+
+  const mobileProjects = mobileExpandedId
+    ? PROJECTS.filter((p) => p.id === mobileExpandedId)
+    : PROJECTS;
 
   const prev = useCallback(() => {
     setIndex((i) => Math.max(0, i - 1));
@@ -58,7 +63,27 @@ export default function ProjectsSection() {
         </div>
       </div>
 
-      <div className="mt-20 flex w-[75%] flex-col items-center">
+      <div className="mt-12 flex w-full flex-col items-center px-2 sm:mt-20 sm:w-[75%] sm:px-0">
+        <div className="flex w-full flex-col gap-16 sm:hidden">
+          {mobileProjects.map((p) => (
+            <div key={p.id} className="w-full">
+              <WorkCard
+                img={p.img}
+                link={p.link}
+                website={p.website}
+                title={p.title}
+                lang={p.lang}
+                info={p.info}
+                expanded={mobileExpandedId === p.id}
+                onExpandedChange={(open) =>
+                  setMobileExpandedId(open ? p.id : null)
+                }
+              />
+            </div>
+          ))}
+        </div>
+
+        <div className="hidden w-full flex-col items-center sm:flex">
         <div key={project.id} className="timeline-step-fade w-full">
           <WorkCard
             img={project.img}
@@ -70,7 +95,7 @@ export default function ProjectsSection() {
           />
         </div>
 
-        <div className="mt-8 flex w-full items-center justify-between gap-4 px-2">
+        <div className="mt-32 flex w-full items-center justify-between gap-4 px-2">
           <button
             type="button"
             onClick={prev}
@@ -94,6 +119,7 @@ export default function ProjectsSection() {
             <span className="hidden sm:inline">Next</span>
             <BsChevronRight className="text-xl" aria-hidden />
           </button>
+        </div>
         </div>
       </div>
     </div>
