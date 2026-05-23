@@ -16,7 +16,7 @@ export default function PageTitle({
       id={id}
       className={
         isSection
-          ? `${baseClass} mt-0 w-full scroll-mt-20 pt-0 text-center ${className}`.trim()
+          ? `${baseClass} mt-0 w-full pt-0 text-center ${className}`.trim()
           : `${baseClass} mt-10 ${className}`.trim()
       }
     >

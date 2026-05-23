@@ -5,9 +5,19 @@ import { AiFillHome, AiFillFolder } from "react-icons/ai";
 import { BsFillBriefcaseFill, BsFillPersonFill } from "react-icons/bs";
 import { railActionClass, railLabelClass } from "./railConstants";
 
+function scrollToSection(hash, onNavigate) {
+  const id = hash.replace("#", "");
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+  onNavigate?.();
+}
+
 const NavControls = ({ onNavigate }) => {
-  const handleClick = () => {
-    onNavigate?.();
+  const handleClick = (e, hash) => {
+    e.preventDefault();
+    scrollToSection(hash, onNavigate);
   };
 
   return (
@@ -16,7 +26,7 @@ const NavControls = ({ onNavigate }) => {
         <li className="flex items-center justify-center">
           <a
             href="#home"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e, "#home")}
             className={`${railActionClass} mb-12`}
             aria-label="Home"
           >
@@ -27,7 +37,7 @@ const NavControls = ({ onNavigate }) => {
         <li className="flex items-center justify-center">
           <a
             href="#experience"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e, "#experience")}
             className={`${railActionClass} mb-12`}
             aria-label="Experience"
           >
@@ -38,7 +48,7 @@ const NavControls = ({ onNavigate }) => {
         <li className="flex items-center justify-center">
           <a
             href="#projects"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e, "#projects")}
             className={`${railActionClass} mb-12`}
             aria-label="Projects"
           >
@@ -49,7 +59,7 @@ const NavControls = ({ onNavigate }) => {
         <li className="flex items-center justify-center">
           <a
             href="#about"
-            onClick={handleClick}
+            onClick={(e) => handleClick(e, "#about")}
             className={railActionClass}
             aria-label="About"
           >

@@ -22,7 +22,7 @@ const Navbar = () => {
       ) : null}
       <button
         type="button"
-        className="pointer-events-auto relative z-[1002] rounded-full border border-white/35 bg-white/10 p-3 shadow-md lg:hidden"
+        className="pointer-events-auto relative z-[1002] rounded-full border border-white/35 bg-[#191d2b] p-3 shadow-md lg:hidden"
         onClick={() => setActive((open) => !open)}
         aria-expanded={active}
         aria-label={active ? "Close menu" : "Open menu"}

@@ -28,15 +28,18 @@ export default function Page() {
           <NavControls />
         </div>
       </aside>
-      <div className="relative z-[28] flex w-full flex-col items-center justify-center gap-8 backdrop-blur-sm sm:mx-auto sm:w-1/2 lg:mx-[25vw] lg:w-1/2 lg:max-w-none">
+      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 lg:max-w-none">
         <section
-          className="relative overflow-hidden sm:h-screen sm:w-[60%]"
+          className="relative w-full overflow-hidden sm:h-screen"
           id="home"
           variant="section"
         >
-          <div className="home flex items-center justify-center" aria-hidden />
-          <div className="relative z-10 flex min-h-screen w-full flex-col justify-between py-8 ">
-            <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20">
+          <div
+            className="home flex items-center justify-center w-full"
+            aria-hidden
+          />
+          <div className="relative z-10 flex min-h-screen w-full flex-col justify-between py-8">
+            <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20 sm:w-[75%] sm:mx-auto">
               <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:gap-6 ">
                 <div className="min-w-0 flex flex-col flex-1 text-justify font-bold lg:text-lg ">
                   <p className="text-xl sm:text-2xl ">Hi there!!</p>
@@ -53,13 +56,13 @@ export default function Page() {
                   />
                 </div>
               </div>
-              <p className="w-full text-justify text-xl font-normal leading-10">
+              <p className="w-full text-justify text-xl font-normal leading-10 backdrop-blur-sm">
                 I'm a Full Stack Web Developer based in Leiria, Portugal with 7
                 years of training and continuous hands-on experience in
                 programming, focused on building efficient, modern, and
                 well-structured solutions.
               </p>
-              <div className="w-full ">
+              <div className="w-full backdrop-blur-sm ">
                 <TechStack variant="grid" size="sm" />
               </div>
             </div>
@@ -75,7 +78,7 @@ export default function Page() {
         <section
           id="experience"
           variant="section"
-          className="min-h-screen w-full"
+          className="min-h-screen w-full mt-24 sm:w-[75%] sm:h-auto"
         >
           <ExperienceSection />
         </section>
@@ -83,15 +86,15 @@ export default function Page() {
         <section
           id="projects"
           variant="section"
-          className="min-h-screen w-full"
+          className="min-h-screen w-full mt-24 sm:w-[75%]"
         >
           <ProjectsSection />
         </section>
 
         <section
-          id="about"
           variant="section"
-          className="flex min-h-screen w-full flex-col items-center justify-start pt-4 mt-0"
+          className="flex min-h-screen w-full mt-24 sm:w-[75%]"
+          aria-label="About"
         >
           <AboutSection />
         </section>

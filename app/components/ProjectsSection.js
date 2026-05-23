@@ -41,10 +41,6 @@ export default function ProjectsSection() {
   const [index, setIndex] = useState(0);
   const [mobileExpandedId, setMobileExpandedId] = useState(null);
 
-  const mobileProjects = mobileExpandedId
-    ? PROJECTS.filter((p) => p.id === mobileExpandedId)
-    : PROJECTS;
-
   const prev = useCallback(() => {
     setIndex((i) => Math.max(0, i - 1));
   }, []);
@@ -59,13 +55,13 @@ export default function ProjectsSection() {
     <div className="flex flex-col items-center w-full justify-center text-center">
       <div className=" flex w-full flex-col items-center justify-center">
         <div className="mx-0 flex w-full flex-col items-center justify-center text-center sm:mx-5">
-          <PageTitle id="projects" variant="section" title="Projects" />
+          <PageTitle variant="section" title="Projects" />
         </div>
       </div>
 
-      <div className="mt-12 flex w-full flex-col items-center px-2 sm:mt-20 sm:w-[75%] sm:px-0">
+      <div className="mt-12 flex w-full flex-col items-center px-2 pb-8 sm:mt-20 sm:px-0">
         <div className="flex w-full flex-col gap-16 sm:hidden">
-          {mobileProjects.map((p) => (
+          {PROJECTS.map((p) => (
             <div key={p.id} className="w-full">
               <WorkCard
                 img={p.img}
@@ -84,42 +80,45 @@ export default function ProjectsSection() {
         </div>
 
         <div className="hidden w-full flex-col items-center sm:flex">
-        <div key={project.id} className="timeline-step-fade w-full">
-          <WorkCard
-            img={project.img}
-            link={project.link}
-            website={project.website}
-            title={project.title}
-            lang={project.lang}
-            info={project.info}
-          />
-        </div>
+          <div
+            key={project.id}
+            className="timeline-step-fade w-full backdrop-blur-sm "
+          >
+            <WorkCard
+              img={project.img}
+              link={project.link}
+              website={project.website}
+              title={project.title}
+              lang={project.lang}
+              info={project.info}
+            />
+          </div>
 
-        <div className="mt-32 flex w-full items-center justify-between gap-4 px-2">
-          <button
-            type="button"
-            onClick={prev}
-            disabled={index === 0}
-            className="flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 transition enabled:hover:border-white/40 enabled:hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-30 sm:text-base"
-            aria-label="Previous project"
-          >
-            <BsChevronLeft className="text-xl" aria-hidden />
-            <span className="hidden sm:inline">Previous</span>
-          </button>
-          <span className="text-sm text-white/50 tabular-nums">
-            {index + 1} / {PROJECTS.length}
-          </span>
-          <button
-            type="button"
-            onClick={next}
-            disabled={index === LAST}
-            className="flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 transition enabled:hover:border-white/40 enabled:hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-30 sm:text-base"
-            aria-label="Next project"
-          >
-            <span className="hidden sm:inline">Next</span>
-            <BsChevronRight className="text-xl" aria-hidden />
-          </button>
-        </div>
+          <div className="mt-32 flex w-full items-center justify-between gap-4 px-2">
+            <button
+              type="button"
+              onClick={prev}
+              disabled={index === 0}
+              className="flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 transition enabled:hover:border-white/40 enabled:hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-30 sm:text-base"
+              aria-label="Previous project"
+            >
+              <BsChevronLeft className="text-xl" aria-hidden />
+              <span className="hidden sm:inline">Previous</span>
+            </button>
+            <span className="text-sm text-white/50 tabular-nums">
+              {index + 1} / {PROJECTS.length}
+            </span>
+            <button
+              type="button"
+              onClick={next}
+              disabled={index === LAST}
+              className="flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 transition enabled:hover:border-white/40 enabled:hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-30 sm:text-base"
+              aria-label="Next project"
+            >
+              <span className="hidden sm:inline">Next</span>
+              <BsChevronRight className="text-xl" aria-hidden />
+            </button>
+          </div>
         </div>
       </div>
     </div>
