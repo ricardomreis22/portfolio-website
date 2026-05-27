@@ -7,7 +7,7 @@ export default function AboutSection() {
       <PageTitle id="about" variant="section" title="About Me" />
 
       <div className="mx-auto mt-20 flex w-full max-w-3xl flex-col px-2 text-justify text-xl leading-10 ">
-        <h1>Greetings from Southampton, UK! 🚀</h1>
+        <h1>Greetings from Portugal! 🚀</h1>
         <p className="mt-4">
           I'm your friendly neighborhood Full Stack Web Developer with a knack
           for turning coffee into code. Originating from the intense world of
