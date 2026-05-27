@@ -3,11 +3,9 @@
 import React from "react";
 import NavControls from "../../components/NavControls";
 import PageTitle from "../../components/PageTitle";
-import SkillsBar from "../../components/SkillsBar";
 import Subtitle from "../../components/Subtitle";
 import Timeline from "../../components/Timeline";
 import Navbar from "../../components/Navbar";
-import Complements from "../../components/Complements";
 
 const About = () => {
   return (
@@ -40,36 +38,8 @@ const About = () => {
               adventure together! 💻✨
             </p>
           </div>
-          <div
-            className="grid grid-cols-2 w-[80%] gap-2 text-xl font-bold xl:w-1/3 xl:gap-x-0
-           xl:h-20 xl:mt-32"
-          >
-            <Complements adj="Love to Learn" class="hover:-translate-y-2" />
-            <Complements adj="Team Worker" class="hover:-translate-y-2" />
-            <Complements adj="Hard Worker" class="hover:translate-y-2" />
-            <Complements adj="Self-taught" class="hover:translate-y-2" />
-          </div>
         </div>
         <div className="flex flex-col items-center justify-center w-[80%] md:w-[100%] lg:w-[90%]">
-          <div className="w-[80%] xl:w-[70%]">
-            <Subtitle title="My Skills" />
-          </div>
-          <div className="grid gap-6 place-items-center grid-cols-2 w-[100%] mb-20 md:gap-y-12 md:gap-x-32 xl:gap-y-16">
-            <SkillsBar lang="HTML" count="80" />
-            <SkillsBar lang="JS" count="80" />
-            <SkillsBar lang="CSS" count="70" />
-            <SkillsBar lang="Tailwind" count="70" />
-            <SkillsBar lang="React" count="70" />
-            <SkillsBar lang="Python" count="60" />
-            <SkillsBar lang="Bootstrap" count="60" />
-            <SkillsBar lang="C++" count="50" />
-            <SkillsBar lang="Flask" count="50" />
-            <SkillsBar lang="Vite.js" count="70" />
-            <SkillsBar lang="Next.js" count="70" />
-          </div>
-          <div className="w-[80%] lg:w-[70%]">
-            <Subtitle title="Timeline" />
-          </div>
           <div className="flex flex-col w-[100%] justify-between items-center lg:flex-row ">
             <div className="grid grid-cols-1 gap-y-20 gap-x-64 place-items-center text-left w-[90%] mb-44 ml-6 mt-10 md:gap-x-10 lg:w-[50%] xl:ml-24 relative ">
               <h1 className="text-xl justify-start -rotate-90 absolute bottom-[50%] -left-20 lg:-left-14">
