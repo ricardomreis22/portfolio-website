@@ -28,7 +28,7 @@ export default function Page() {
           <NavControls />
         </div>
       </aside>
-      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 lg:max-w-none">
+      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 xl:w-1/3 xl:mx-auto lg:max-w-none">
         <section
           className="relative w-full overflow-hidden sm:h-screen"
           id="home"
