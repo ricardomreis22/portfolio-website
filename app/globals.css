@@ -11,19 +11,11 @@
 }
 
 @layer utilities {
-  .h-section {
-    height: calc(100dvh - var(--mobile-bottom-bar));
-  }
-
   .min-h-section {
     min-height: calc(100dvh - var(--mobile-bottom-bar));
   }
 
   @media (min-width: 1024px) {
-    .h-section {
-      height: 100dvh;
-    }
-
     .min-h-section {
       min-height: 100dvh;
     }

@@ -31,7 +31,7 @@ export default function Page() {
       </aside>
       <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 text-sm sm:text-base sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 xl:mx-auto lg:max-w-none">
         <section
-          className="relative flex h-section w-full flex-col sm:w-[90%] xl:w-[65%]"
+          className="relative flex min-h-section w-full flex-col sm:w-[90%] xl:w-[65%]"
           id="home"
           variant="section"
         >
@@ -77,7 +77,7 @@ export default function Page() {
         <section
           id="experience"
           variant="section"
-          className="mt-24 flex h-section w-full flex-col sm:w-[90%] xl:w-[65%]"
+          className="mt-24 flex min-h-section w-full flex-col sm:w-[90%] xl:w-[65%]"
         >
           <ExperienceSection />
         </section>
@@ -92,7 +92,7 @@ export default function Page() {
 
         <section
           variant="section"
-          className="mt-24 flex h-section w-full flex-col sm:mt-40 sm:w-[90%] xl:w-[65%] lg:mt-24"
+          className="mt-24 flex min-h-section w-full flex-col sm:mt-40 sm:w-[90%] xl:w-[65%] lg:mt-24"
           aria-label="About"
         >
           <AboutSection />
