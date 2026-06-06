@@ -77,7 +77,7 @@ export default function Page() {
         <section
           id="experience"
           variant="section"
-          className="mt-24 flex min-h-section w-full flex-col sm:w-[90%] xl:w-[65%]"
+          className="mt-24 flex min-h-section w-full flex-col"
         >
           <ExperienceSection />
         </section>

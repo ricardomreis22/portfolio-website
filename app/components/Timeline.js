@@ -9,11 +9,11 @@ const Timeline = ({
 }) => {
   return (
     <div className={`w-full text-start ${className}`.trim()}>
-      <p className="flex items-start text-lg font-bold leading-snug sm:text-xl">
+      <p className="flex items-start text-base font-bold leading-snug sm:text-xl ">
         <span>{course}</span>
       </p>
-      <p className="text-sm text-white/60 sm:text-base">{date}</p>
-      <p className="mt-3 text-base leading-relaxed text-white/90 sm:text-lg">
+      <p className="text-xs text-white/60 sm:text-base mt-1">{date}</p>
+      <p className="mt-3 text-sm leading-relaxed text-white/90 sm:text-lg">
         {description}
       </p>
     </div>

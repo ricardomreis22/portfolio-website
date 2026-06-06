@@ -54,75 +54,42 @@ const STUDY_ENTRIES = [
 ];
 
 const toggleLabelClass =
-  "text-lg font-semibold transition sm:text-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80";
+  "appearance-none border-0 bg-transparent p-0 m-0 cursor-pointer text-2xl font-semibold transition sm:text-3xl focus:outline-none";
 
-function ExperienceToggle({ isWork, toggleIsWork }) {
+function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
   return (
     <div
-      role="radiogroup"
+      role="tablist"
       aria-label="Experience type"
-      className="flex w-full items-center justify-center gap-6 sm:gap-10"
+      className="flex w-full items-center justify-center gap-16 sm:gap-24"
     >
       <button
         type="button"
-        role="radio"
-        aria-checked={isWork}
+        role="tab"
+        aria-selected={isWork}
         id="work"
         aria-controls="experience-panel"
-        onClick={toggleIsWork}
+        onClick={onSelectWork}
         className={`${toggleLabelClass} ${
-          isWork ? "text-emerald-400" : "text-white/60 hover:text-white/85"
+          isWork
+            ? "text-emerald-400"
+            : "text-white/40 hover:text-white/60"
         }`}
       >
         Work
       </button>
 
-      <div className="relative flex h-10 w-[4.5rem] shrink-0 items-center rounded-full border border-white/20 bg-white/5 p-1 backdrop-blur-sm">
-        <input
-          type="radio"
-          name="experience-tab"
-          id="exp-work"
-          checked={isWork}
-          onChange={toggleIsWork}
-          className="peer/work sr-only"
-          aria-label="Work"
-        />
-        <input
-          type="radio"
-          name="experience-tab"
-          id="exp-study"
-          checked={!isWork}
-          onChange={toggleIsWork}
-          className="peer/study sr-only"
-          aria-label="Study"
-        />
-        <label
-          htmlFor="exp-work"
-          className="absolute inset-y-1 left-1 z-10 w-[calc(50%-0.125rem)] cursor-pointer rounded-full"
-        />
-        <label
-          htmlFor="exp-study"
-          className="absolute inset-y-1 right-1 z-10 w-[calc(50%-0.125rem)] cursor-pointer rounded-full"
-        />
-        <span
-          aria-hidden
-          className={`pointer-events-none absolute inset-y-1 left-1 w-[calc(50%-0.125rem)] rounded-full shadow-sm transition-transform duration-200 ease-out ${
-            isWork
-              ? "translate-x-0 bg-emerald-400"
-              : "translate-x-[calc(100%+0.25rem)] bg-sky-400"
-          }`}
-        />
-      </div>
-
       <button
         type="button"
-        role="radio"
-        aria-checked={!isWork}
+        role="tab"
+        aria-selected={!isWork}
         id="study"
         aria-controls="experience-panel"
-        onClick={toggleIsWork}
+        onClick={onSelectStudy}
         className={`${toggleLabelClass} ${
-          !isWork ? "text-sky-400" : "text-white/60 hover:text-white/85"
+          !isWork
+            ? "text-sky-400"
+            : "text-white/40 hover:text-white/60"
         }`}
       >
         Study
@@ -137,12 +104,12 @@ function TimelinePanel({ entries, boxClassName = "", isWork }) {
   return (
     <div
       className={`flex h-auto py-10 w-full max-w-full flex-col gap-10 rounded-2xl 
-        text-base  sm:gap-10 sm:py-5 sm:pr-5 sm:pl-0 sm:pt-5 ${boxClassName}`}
+        text-sm sm:text-base sm:gap-10 sm:py-5 sm:pr-5 sm:pl-0 sm:pt-5 ${boxClassName}`}
     >
       {ordered.map((item) => (
         <Timeline
           key={item.id}
-          className="timeline-step-fade w-full px-10"
+          className="timeline-step-fade w-full px-4 sm:px-6"
           date={item.date}
           course={item.course}
           description={item.description}
@@ -156,20 +123,22 @@ function TimelinePanel({ entries, boxClassName = "", isWork }) {
 export default function ExperienceSection() {
   const [isWork, setIsWork] = useState(true);
 
-  const toggleIsWork = () => setIsWork((prev) => !prev);
-
   const entries = isWork ? WORK_ENTRIES : STUDY_ENTRIES;
   const boxClassName = isWork
     ? "border-2 border-emerald-400"
     : "border-2 border-sky-400";
 
   return (
-    <div className="flex w-full flex-col items-center justify-center text-center text-base sm:text-xl">
+    <div className="flex w-full flex-col items-center justify-center text-center text-sm sm:text-xl">
       <PageTitle variant="section" title="Experience" />
 
-      <div className="mt-16 flex w-full max-w-6xl flex-col px-2 sm:mt-16">
+      <div className="mt-16 flex w-full flex-col sm:mt-16">
         <div className="w-full sm:mb-5">
-          <ExperienceToggle isWork={isWork} toggleIsWork={toggleIsWork} />
+          <ExperienceToggle
+            isWork={isWork}
+            onSelectWork={() => setIsWork(true)}
+            onSelectStudy={() => setIsWork(false)}
+          />
         </div>
 
         <div
