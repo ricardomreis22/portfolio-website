@@ -6,7 +6,7 @@ export default function AboutSection() {
     <div className="flex w-full flex-col items-center justify-start pt-6 text-center text-lg sm:pt-8 sm:text-xl">
       <PageTitle id="about" variant="section" title="About Me" />
 
-      <div className="mx-auto mt-20 flex w-full max-w-3xl flex-col px-2 text-justify text-xl leading-10 ">
+      <div className="mx-auto mt-20 flex w-full flex-col px-2 text-justify text-xl leading-10 lg:max-w-none">
         <h1>Greetings from Portugal! 🚀</h1>
         <p className="mt-4">
           I'm your friendly neighborhood Full Stack Web Developer with a knack

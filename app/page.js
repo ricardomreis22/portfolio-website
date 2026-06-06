@@ -28,9 +28,9 @@ export default function Page() {
           <NavControls />
         </div>
       </aside>
-      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 xl:w-1/3 xl:mx-auto lg:max-w-none">
+      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 xl:mx-auto lg:max-w-none">
         <section
-          className="relative w-full overflow-hidden sm:h-screen"
+          className="relative w-full overflow-hidden sm:h-screen lg:w-[75%]"
           id="home"
           variant="section"
         >
@@ -38,8 +38,8 @@ export default function Page() {
             className="home flex items-center justify-center w-full"
             aria-hidden
           />
-          <div className="relative z-10 flex min-h-screen w-full flex-col justify-between py-8">
-            <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20 sm:w-[75%] sm:mx-auto">
+          <div className="relative z-10 mx-auto flex min-h-screen w-full flex-col justify-between py-8">
+            <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20">
               <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:gap-6 ">
                 <div className="min-w-0 flex flex-col flex-1 text-justify font-bold lg:text-lg ">
                   <p className="text-xl sm:text-2xl ">Hi there!!</p>
@@ -78,7 +78,7 @@ export default function Page() {
         <section
           id="experience"
           variant="section"
-          className="min-h-screen w-full mt-24 sm:w-[75%] sm:h-auto"
+          className="mt-24 min-h-screen w-full sm:h-auto lg:w-[75%]"
         >
           <ExperienceSection />
         </section>
@@ -86,14 +86,14 @@ export default function Page() {
         <section
           id="projects"
           variant="section"
-          className="min-h-screen w-full mt-24 sm:w-[75%]"
+          className="mt-24 min-h-screen w-full lg:w-[75%]"
         >
           <ProjectsSection />
         </section>
 
         <section
           variant="section"
-          className="flex min-h-screen w-full mt-24 sm:w-[75%]"
+          className="mt-24 flex min-h-screen w-full lg:w-[75%]"
           aria-label="About"
         >
           <AboutSection />

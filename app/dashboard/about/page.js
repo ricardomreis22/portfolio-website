@@ -3,8 +3,7 @@
 import React from "react";
 import NavControls from "../../components/NavControls";
 import PageTitle from "../../components/PageTitle";
-import Subtitle from "../../components/Subtitle";
-import Timeline from "../../components/Timeline";
+
 import Navbar from "../../components/Navbar";
 
 const About = () => {
@@ -37,50 +36,6 @@ const About = () => {
               turn your ideas into web wonders—let's embark on this coding
               adventure together! 💻✨
             </p>
-          </div>
-        </div>
-        <div className="flex flex-col items-center justify-center w-[80%] md:w-[100%] lg:w-[90%]">
-          <div className="flex flex-col w-[100%] justify-between items-center lg:flex-row ">
-            <div className="grid grid-cols-1 gap-y-20 gap-x-64 place-items-center text-left w-[90%] mb-44 ml-6 mt-10 md:gap-x-10 lg:w-[50%] xl:ml-24 relative ">
-              <h1 className="text-xl justify-start -rotate-90 absolute bottom-[50%] -left-20 lg:-left-14">
-                Work
-              </h1>
-              <Timeline
-                date="2024"
-                course="Internship Web Developer"
-                description="Internship in a company called PortF where I worked as FullStack Web Developer"
-              />
-              <Timeline
-                date="2019 to 2022"
-                course="Sports Teacher and Coach"
-                description="My first jobs in Education where more about leadership and planning"
-              />
-              <Timeline
-                date="2022 to 2023"
-                course="Elementary Web Developer Teacher"
-                description="While studying I had the opportunity to work as Teacher in Web Dev"
-              />
-            </div>
-            <div className="grid grid-cols-1 gap-y-20 gap-x-64 place-items-center text-left w-[100%] mb-44 ml-6 mt-10 md:gap-x-10 lg:w-[50%] xl:ml-24 relative ">
-              <h1 className="text-xl justify-start -rotate-90 absolute bottom-[50%] -left-20 lg:-left-14">
-                Study
-              </h1>
-              <Timeline
-                date="2019 to 2020"
-                course="CS50: Introduction to Computer Science"
-                description="My first course in Web Dev where i learn the basics of C++, Python, HTML and CSS!"
-              />
-              <Timeline
-                date="2020 to 2022"
-                course="CodeAcademy - Full-Stack Engineer"
-                description="Learn more about HTML, CSS, JavaScript and React"
-              />
-              <Timeline
-                date="2022 to 2023"
-                course="Scrimba - Learn React Course"
-                description="Lastly I focused more in React while I keep learning other frameworks like Next.js and Tailwind CSS"
-              />
-            </div>
           </div>
         </div>
       </div>
