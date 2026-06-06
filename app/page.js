@@ -6,10 +6,11 @@ import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
 import LeftRailActions from "./components/LeftRailActions";
 import TechStack from "./components/TechStack";
+import ContactInfo from "./components/ContactInfo";
 
 export default function Page() {
   return (
-    <main className="relative min-h-screen text-white">
+    <main className="relative min-h-screen pb-28 text-white lg:pb-0">
       <Navbar />
       {/* Tech pills roam the full viewport; radial mask keeps the center area lighter */}
       <div className="pointer-events-none fixed inset-0 z-[25]">
@@ -28,9 +29,9 @@ export default function Page() {
           <NavControls />
         </div>
       </aside>
-      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 xl:mx-auto lg:max-w-none">
+      <div className="relative z-[28] mx-auto flex w-[90%] flex-col items-center justify-center gap-0 text-sm sm:text-base sm:backdrop-blur-sm sm:w-[90%] lg:mx-[25vw] lg:w-1/2 xl:mx-auto lg:max-w-none">
         <section
-          className="relative w-full overflow-hidden sm:h-screen lg:w-[75%]"
+          className="relative min-h-section max-h-section w-full overflow-y-auto sm:w-[90%] xl:w-[65%]"
           id="home"
           variant="section"
         >
@@ -38,12 +39,12 @@ export default function Page() {
             className="home flex items-center justify-center w-full"
             aria-hidden
           />
-          <div className="relative z-10 mx-auto flex min-h-screen w-full flex-col justify-between py-8">
+          <div className="relative z-10 mx-auto flex h-full min-h-0 w-full flex-col justify-between py-8">
             <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20">
               <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:gap-6 ">
-                <div className="min-w-0 flex flex-col flex-1 text-justify font-bold lg:text-lg ">
-                  <p className="text-xl sm:text-2xl ">Hi there!!</p>
-                  <p className="mt-4 text-xl sm:text-2xl">I am Ricardo Reis</p>
+                <div className="min-w-0 flex flex-col flex-1 text-center font-bold lg:text-lg ">
+                  <p className="text-lg  sm:text-2xl ">Hi there!!</p>
+                  <p className="mt-4 text-lg sm:text-2xl">I am Ricardo Reis</p>
                 </div>
                 <div className="flex shrink-0 justify-center sm:justify-end">
                   <Image
@@ -56,7 +57,7 @@ export default function Page() {
                   />
                 </div>
               </div>
-              <p className="w-full text-justify text-xl font-normal leading-10 backdrop-blur-sm">
+              <p className="w-full text-justify text-base font-normal leading-8 backdrop-blur-sm sm:text-xl sm:leading-10">
                 I'm a Full Stack Web Developer based in Leiria, Portugal with 7
                 years of training and continuous hands-on experience in
                 programming, focused on building efficient, modern, and
@@ -66,11 +67,9 @@ export default function Page() {
                 <TechStack variant="grid" size="sm" />
               </div>
             </div>
-            <div className="flex w-full flex-col items-center gap-6">
-              <div className="flex flex-col items-center gap-1 text-base mt-20">
-                <p>ricardomreis22@hotmail.com</p>
-                <p>+351913573834</p>
-              </div>
+
+            <div className=" w-full flex-col items-center gap-6 lg:flex">
+              <ContactInfo className="mt-auto pt-20 " />
             </div>
           </div>
         </section>
@@ -78,7 +77,7 @@ export default function Page() {
         <section
           id="experience"
           variant="section"
-          className="mt-24 min-h-screen w-full sm:h-auto lg:w-[75%]"
+          className="mt-24 max-h-section w-full overflow-y-auto sm:w-[90%] xl:w-[65%]"
         >
           <ExperienceSection />
         </section>
@@ -86,18 +85,22 @@ export default function Page() {
         <section
           id="projects"
           variant="section"
-          className="mt-24 min-h-screen w-full lg:w-[75%]"
+          className="mt-24 w-full sm:w-[90%] xl:w-[65%]"
         >
           <ProjectsSection />
         </section>
 
         <section
           variant="section"
-          className="mt-24 flex min-h-screen w-full lg:w-[75%]"
+          className="mt-24 flex min-h-section max-h-section w-full flex-col overflow-y-auto sm:mt-40 sm:w-[90%] xl:w-[65%] lg:mt-24"
           aria-label="About"
         >
           <AboutSection />
         </section>
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 z-[29] flex items-center justify-center border-t border-white/20 bg-[#0d0f16]/95 px-4 py-3 backdrop-blur-sm lg:hidden">
+        <LeftRailActions variant="panel" />
       </div>
     </main>
   );

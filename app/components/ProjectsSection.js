@@ -13,7 +13,7 @@ const PROJECTS = [
     link: "https://github.com/ricardomreis22/padeltournaments.git",
     website: "https://padeltournaments.vercel.app/",
     lang: ["Html", "Python", "CSS", "Flask"],
-    info: "This was my first project, that I made to finish CS50x course where I create a Padel Club website, that the users can login the website to find tournaments in the zone for their level and register themselfs in these tournaments.",
+    info: "My first project! A Padel Club website, that the users can login to find tournaments in the zone for their level and register themselfs in them.",
   },
   {
     id: "quizzical",
@@ -22,12 +22,12 @@ const PROJECTS = [
     link: "https://github.com/ricardomreis22/Quizzical.git",
     website: "https://quizzical-j396.vercel.app/",
     lang: ["Html", "Javascript", "CSS", "React", "Vite.js"],
-    info: "The final project of the React Course where I made a quiz! In this project I would get the questions from an api and presented them in the quiz showing the correct answer and how many correct answers the user got. ",
+    info: "The final project of the React Course. A quiz game where I would get the questions from an api and presented them in the quiz showing the correct answer and how many correct answers the user got!",
   },
   {
     id: "restaurant",
     title: "Restaurant Manager App",
-    img: "/championsgif.gif",
+    img: "/restaurantmanager.gif",
     link: "https://github.com/ricardomreis22/restaurant-manager.git",
     website: "https://restaurant-manager-eight.vercel.app/",
     lang: ["Html", "TypeScript", "CSS", "React", "Next.js", "Prisma"],
@@ -52,8 +52,8 @@ export default function ProjectsSection() {
   const project = PROJECTS[index];
 
   return (
-    <div className="flex flex-col items-center w-full justify-center text-center">
-      <div className=" flex w-full flex-col items-center justify-center">
+    <div className="flex w-full flex-col items-center justify-center text-center">
+      <div className="flex w-full flex-col items-center justify-center">
         <div className="mx-0 flex w-full flex-col items-center justify-center text-center sm:mx-5">
           <PageTitle variant="section" title="Projects" />
         </div>
@@ -82,7 +82,7 @@ export default function ProjectsSection() {
         <div className="hidden w-full flex-col items-center sm:flex">
           <div
             key={project.id}
-            className="timeline-step-fade w-full backdrop-blur-sm "
+            className="timeline-step-fade w-full backdrop-blur-sm"
           >
             <WorkCard
               img={project.img}
@@ -103,7 +103,7 @@ export default function ProjectsSection() {
               aria-label="Previous project"
             >
               <BsChevronLeft className="text-xl" aria-hidden />
-              <span className="hidden sm:inline">Previous</span>
+              <span>Previous</span>
             </button>
             <span className="text-sm text-white/50 tabular-nums">
               {index + 1} / {PROJECTS.length}
@@ -115,7 +115,7 @@ export default function ProjectsSection() {
               className="flex items-center gap-2 rounded-lg border border-white/20 px-4 py-2 text-sm font-medium text-white/90 transition enabled:hover:border-white/40 enabled:hover:bg-white/5 disabled:cursor-not-allowed disabled:opacity-30 sm:text-base"
               aria-label="Next project"
             >
-              <span className="hidden sm:inline">Next</span>
+              <span>Next</span>
               <BsChevronRight className="text-xl" aria-hidden />
             </button>
           </div>

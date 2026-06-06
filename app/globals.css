@@ -2,6 +2,34 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --mobile-action-bar: 4rem;
+  --mobile-contact-bar: 3.25rem;
+  --mobile-bottom-bar: calc(
+    var(--mobile-action-bar) + var(--mobile-contact-bar)
+  );
+}
+
+@layer utilities {
+  .min-h-section {
+    min-height: calc(100dvh - var(--mobile-bottom-bar));
+  }
+
+  .max-h-section {
+    max-height: calc(100dvh - var(--mobile-bottom-bar));
+  }
+
+  @media (min-width: 1024px) {
+    .min-h-section {
+      min-height: 100dvh;
+    }
+
+    .max-h-section {
+      max-height: 100dvh;
+    }
+  }
+}
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 5.5rem;
@@ -14,9 +42,15 @@ html {
 body {
   background-color: #191d2b;
   box-sizing: border-box;
-  font-size: 18px;
+  font-size: 16px;
   color: white;
   font-family: sans-serif;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 18px;
+  }
 }
 
 .home {
@@ -35,12 +69,18 @@ body {
 }
 
 .twelve {
-  font-size: 40px;
+  font-size: 32px;
   font-weight: 600;
   color: #ffffff;
   text-shadow:
     0 0 12px rgba(255, 255, 255, 0.35),
     0 0 28px rgba(219, 225, 232, 0.25);
+}
+
+@media (min-width: 640px) {
+  .twelve {
+    font-size: 40px;
+  }
 }
 
 @keyframes timeline-step-fade {

@@ -82,7 +82,7 @@ const WorkCard = (props) => {
     <div className="w-full min-w-0">
       <div className="group block w-full">
         <div className="mb-3 flex w-full items-center justify-center px-4 py-2">
-          <h1 className="text-center text-2xl font-bold leading-tight text-white">
+          <h1 className="text-center text-xl font-bold leading-tight text-white sm:text-2xl">
             {props.title}
           </h1>
         </div>
@@ -96,15 +96,15 @@ const WorkCard = (props) => {
             className="object-contain object-center opacity-100 transition-opacity duration-300 ease-out"
           />
 
-          <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/70 px-4 sm:hidden">
-            <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center bg-black/70 px-4 opacity-0 transition-opacity duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 sm:hidden">
+            <div className="pointer-events-auto flex flex-wrap items-center justify-center gap-3">
               <ProjectLinks githubUrl={githubUrl} siteUrl={siteUrl} />
             </div>
           </div>
 
           <div className="pointer-events-none absolute inset-0 z-10 hidden items-center justify-center bg-black/80 px-4 opacity-0 transition-opacity duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 sm:flex">
             <div className="flex max-h-[min(90%,22rem)] w-full flex-col items-center gap-5 overflow-y-auto py-2 sm:w-3/4">
-              <p className="max-w-prose text-justify text-base font-bold leading-10 text-white lg:text-xl">
+              <p className="max-w-prose text-justify text-base font-bold leading-[2.75rem] text-white lg:text-xl lg:leading-[3.25rem]">
                 {props.info}
               </p>
               <div className="pointer-events-auto mt-10">
@@ -118,7 +118,7 @@ const WorkCard = (props) => {
 
         {expanded ? (
           <div className="mt-6 pt-2 sm:hidden">
-            <p className="text-justify text-base font-bold leading-8 text-white">
+            <p className="text-justify text-base font-bold leading-[2.75rem] text-white">
               {props.info}
             </p>
           </div>
