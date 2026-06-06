@@ -28,7 +28,7 @@ export default function AboutSection() {
             web wonders—let's embark on this coding adventure together! 💻✨
           </p>
         </div>
-        <ContactInfo className="lg:flex lg:mb-12" />
+        <ContactInfo className="lg:hidden lg:mb-12" />
       </div>
     </div>
   );
