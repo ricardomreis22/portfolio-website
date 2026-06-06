@@ -54,14 +54,14 @@ const STUDY_ENTRIES = [
 ];
 
 const toggleLabelClass =
-  "appearance-none border-0 bg-transparent p-0 m-0 cursor-pointer text-2xl font-semibold transition sm:text-3xl focus:outline-none";
+  "appearance-none border-0 bg-transparent p-0 m-0 cursor-pointer text-2xl font-semibold transition xs:text-3xl focus:outline-none";
 
 function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
   return (
     <div
       role="tablist"
       aria-label="Experience type"
-      className="flex w-full items-center justify-center gap-16 sm:gap-24"
+      className="flex w-full items-center justify-center gap-8 xs:gap-16 sm:gap-24"
     >
       <button
         type="button"
@@ -104,12 +104,12 @@ function TimelinePanel({ entries, boxClassName = "", isWork }) {
   return (
     <div
       className={`flex h-auto py-10 w-full max-w-full flex-col gap-10 rounded-2xl 
-        text-sm sm:text-base sm:gap-10 sm:py-5 sm:pr-5 sm:pl-0 sm:pt-5 ${boxClassName}`}
+        text-sm xs:text-base xs:gap-10 xs:py-5 xs:pr-5 xs:pl-0 xs:pt-5 ${boxClassName}`}
     >
       {ordered.map((item) => (
         <Timeline
           key={item.id}
-          className="timeline-step-fade w-full px-4 sm:px-6"
+          className="timeline-step-fade w-full px-4 xs:px-6"
           date={item.date}
           course={item.course}
           description={item.description}
@@ -129,11 +129,11 @@ export default function ExperienceSection() {
     : "border-2 border-sky-400";
 
   return (
-    <div className="flex w-full flex-col items-center justify-center text-center text-sm sm:text-xl">
+    <div className="flex w-full flex-col items-center justify-center text-center">
       <PageTitle variant="section" title="Experience" />
 
-      <div className="mt-16 flex w-full flex-col sm:mt-16">
-        <div className="w-full sm:mb-5">
+      <div className="mt-16 flex w-full flex-col xs:mt-16 xs:mx-auto xs:max-w-6xl xs:px-2">
+        <div className="w-full xs:mb-5">
           <ExperienceToggle
             isWork={isWork}
             onSelectWork={() => setIsWork(true)}
@@ -143,7 +143,7 @@ export default function ExperienceSection() {
 
         <div
           id="experience-panel"
-          className={`mt-6 flex w-full flex-col items-center sm:mt-8 ${TIMELINE_CARD_SLOT_MIN_H} backdrop-blur-sm`}
+          className={`mt-6 flex w-full flex-col items-center xs:mt-8 ${TIMELINE_CARD_SLOT_MIN_H} backdrop-blur-sm`}
         >
           <TimelinePanel
             entries={entries}
