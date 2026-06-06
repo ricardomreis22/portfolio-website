@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useCallback, useState } from "react";
+import React, { useState } from "react";
 import PageTitle from "./PageTitle";
 import Timeline from "./Timeline";
 
@@ -56,7 +56,7 @@ const STUDY_ENTRIES = [
 const toggleLabelClass =
   "text-lg font-semibold transition sm:text-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80";
 
-function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
+function ExperienceToggle({ isWork, toggleIsWork }) {
   return (
     <div
       role="radiogroup"
@@ -69,7 +69,7 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
         aria-checked={isWork}
         id="work"
         aria-controls="experience-panel"
-        onClick={onSelectWork}
+        onClick={toggleIsWork}
         className={`${toggleLabelClass} ${
           isWork ? "text-emerald-400" : "text-white/60 hover:text-white/85"
         }`}
@@ -83,7 +83,7 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
           name="experience-tab"
           id="exp-work"
           checked={isWork}
-          onChange={onSelectWork}
+          onChange={toggleIsWork}
           className="peer/work sr-only"
           aria-label="Work"
         />
@@ -92,7 +92,7 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
           name="experience-tab"
           id="exp-study"
           checked={!isWork}
-          onChange={onSelectStudy}
+          onChange={toggleIsWork}
           className="peer/study sr-only"
           aria-label="Study"
         />
@@ -120,7 +120,7 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
         aria-checked={!isWork}
         id="study"
         aria-controls="experience-panel"
-        onClick={onSelectStudy}
+        onClick={toggleIsWork}
         className={`${toggleLabelClass} ${
           !isWork ? "text-sky-400" : "text-white/60 hover:text-white/85"
         }`}
@@ -131,13 +131,13 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
   );
 }
 
-function TimelinePanel({ entries, boxClassName = "" }) {
+function TimelinePanel({ entries, boxClassName = "", isWork }) {
   const ordered = [...entries].reverse();
 
   return (
     <div
-      className={`flex h-auto py-10 w-full max-w-full flex-col gap-20 rounded-2xl border border-white/15 bg-[#12151f]/85 
-        text-base shadow-[0_12px_40px_-12px_rgba(0,0,0,0.5)] sm:gap-10 sm:py-5 sm:pr-5 sm:pl-0 sm:pt-5 ${boxClassName}`}
+      className={`flex h-auto py-10 w-full max-w-full flex-col gap-10 rounded-2xl 
+        text-base  sm:gap-10 sm:py-5 sm:pr-5 sm:pl-0 sm:pt-5 ${boxClassName}`}
     >
       {ordered.map((item) => (
         <Timeline
@@ -146,6 +146,7 @@ function TimelinePanel({ entries, boxClassName = "" }) {
           date={item.date}
           course={item.course}
           description={item.description}
+          isWork={isWork}
         />
       ))}
     </div>
@@ -153,16 +154,14 @@ function TimelinePanel({ entries, boxClassName = "" }) {
 }
 
 export default function ExperienceSection() {
-  const [activeTab, setActiveTab] = useState("work");
+  const [isWork, setIsWork] = useState(true);
 
-  const isWork = activeTab === "work";
+  const toggleIsWork = () => setIsWork((prev) => !prev);
+
   const entries = isWork ? WORK_ENTRIES : STUDY_ENTRIES;
   const boxClassName = isWork
-    ? "ring-1 ring-emerald-400/15"
-    : "ring-1 ring-sky-400/15";
-
-  const selectWork = useCallback(() => setActiveTab("work"), []);
-  const selectStudy = useCallback(() => setActiveTab("study"), []);
+    ? "border-2 border-emerald-400"
+    : "border-2 border-sky-400";
 
   return (
     <div className="flex w-full flex-col items-center justify-center text-center text-base sm:text-xl">
@@ -170,18 +169,18 @@ export default function ExperienceSection() {
 
       <div className="mt-16 flex w-full max-w-6xl flex-col px-2 sm:mt-16">
         <div className="w-full sm:mb-5">
-          <ExperienceToggle
-            isWork={isWork}
-            onSelectWork={selectWork}
-            onSelectStudy={selectStudy}
-          />
+          <ExperienceToggle isWork={isWork} toggleIsWork={toggleIsWork} />
         </div>
 
         <div
           id="experience-panel"
           className={`mt-6 flex w-full flex-col items-center sm:mt-8 ${TIMELINE_CARD_SLOT_MIN_H} backdrop-blur-sm`}
         >
-          <TimelinePanel entries={entries} boxClassName={boxClassName} />
+          <TimelinePanel
+            entries={entries}
+            boxClassName={boxClassName}
+            isWork={isWork}
+          />
         </div>
       </div>
     </div>

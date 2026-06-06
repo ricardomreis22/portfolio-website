@@ -86,7 +86,7 @@ const WorkCard = (props) => {
             {props.title}
           </h1>
         </div>
-        <div className="relative aspect-[3/2] w-full cursor-default overflow-hidden bg-black/40 shadow-xl">
+        <div className="relative aspect-[3/2] w-full cursor-default overflow-hidden rounded-2xl bg-black/40 shadow-xl">
           <Image
             src={props.img}
             alt={props.title ? `${props.title} preview` : "Project preview"}
