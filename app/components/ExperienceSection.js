@@ -71,9 +71,7 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
         aria-controls="experience-panel"
         onClick={onSelectWork}
         className={`${toggleLabelClass} ${
-          isWork
-            ? "text-emerald-400"
-            : "text-white/40 hover:text-white/60"
+          isWork ? "text-emerald-400" : "text-white/40 hover:text-white/60"
         }`}
       >
         Work
@@ -87,9 +85,7 @@ function ExperienceToggle({ isWork, onSelectWork, onSelectStudy }) {
         aria-controls="experience-panel"
         onClick={onSelectStudy}
         className={`${toggleLabelClass} ${
-          !isWork
-            ? "text-sky-400"
-            : "text-white/40 hover:text-white/60"
+          !isWork ? "text-sky-400" : "text-white/40 hover:text-white/60"
         }`}
       >
         Study
@@ -103,7 +99,7 @@ function TimelinePanel({ entries, boxClassName = "", isWork }) {
 
   return (
     <div
-      className={`flex h-auto py-10 w-full max-w-full flex-col gap-10 rounded-2xl 
+      className={`flex py-10 w-full max-w-full flex-col gap-10 rounded-2xl 
         text-sm xs:text-base xs:gap-10 xs:py-5 xs:pr-5 xs:pl-0 xs:pt-5 ${boxClassName}`}
     >
       {ordered.map((item) => (
@@ -129,7 +125,7 @@ export default function ExperienceSection() {
     : "border-2 border-sky-400";
 
   return (
-    <div className="flex w-full flex-col items-center justify-center text-center">
+    <div className="flex w-full h-auto flex-col items-center justify-center text-center">
       <PageTitle variant="section" title="Experience" />
 
       <div className="mt-16 flex w-full flex-col xs:mt-16 xs:mx-auto xs:max-w-6xl xs:px-2">

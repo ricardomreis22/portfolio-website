@@ -104,7 +104,7 @@ const WorkCard = (props) => {
 
           <div className="pointer-events-none absolute inset-0 z-10 hidden items-center justify-center bg-black/80 px-4 opacity-0 transition-opacity duration-300 ease-out group-hover:pointer-events-auto group-hover:opacity-100 sm:flex">
             <div className="flex max-h-[min(90%,22rem)] w-full flex-col items-center gap-5 overflow-y-auto py-2 sm:w-3/4">
-              <p className="max-w-prose text-justify text-base font-bold leading-[2.75rem] text-white lg:text-xl lg:leading-[3.25rem]">
+              <p className="max-w-prose text-justify text-base font-bold leading-[2.75rem] text-white lg:text-lg lg:leading-[3.25rem]">
                 {props.info}
               </p>
               <div className="pointer-events-auto mt-10">

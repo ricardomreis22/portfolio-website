@@ -8,7 +8,7 @@ const Timeline = ({
   isWork = true,
 }) => {
   return (
-    <div className={`w-full text-start ${className}`.trim()}>
+    <div className={`w-full text-start mt-10 ${className}`.trim()}>
       <p className="flex items-start text-base font-bold leading-snug xs:text-xl">
         <span>{course}</span>
       </p>

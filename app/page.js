@@ -39,7 +39,7 @@ export default function Page() {
             className="home flex items-center justify-center w-full"
             aria-hidden
           />
-          <div className="relative z-10 mx-auto flex h-full min-h-0 w-full flex-col justify-between py-8">
+          <div className="relative z-10 mx-auto flex h-screen min-h-0 w-full flex-col justify-between py-8">
             <div className="flex w-full flex-col gap-10 pt-12 sm:gap-12 sm:pt-20">
               <div className="flex w-full flex-col gap-8 sm:flex-row sm:items-center sm:gap-6 ">
                 <div className="min-w-0 flex flex-col flex-1 text-center font-bold lg:text-lg ">
@@ -68,7 +68,7 @@ export default function Page() {
               </div>
             </div>
 
-            <div className=" w-full flex-col items-center gap-6 lg:flex">
+            <div className=" w-full mb-20 lg:mb-0 flex-col items-center gap-6 lg:flex">
               <ContactInfo className="mt-auto pt-20 " />
             </div>
           </div>
@@ -77,7 +77,7 @@ export default function Page() {
         <section
           id="experience"
           variant="section"
-          className="mt-24 flex min-h-section w-full flex-col xs:w-[90%] xl:w-[65%]"
+          className="mt-24 flex min-h-section h-screen w-full flex-col xs:w-[90%] xl:w-[65%]"
         >
           <ExperienceSection />
         </section>
